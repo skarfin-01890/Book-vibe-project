@@ -1,7 +1,8 @@
-import { discoverValidationDepths } from 'next/dist/server/app-render/instant-validation/instant-validation';
+
 import Image from 'next/image';
 import React from 'react';
 import BookCard from './BookCard';
+import { Bookstype } from '@/types/books.types';
 const getBooks=async()=>{
 
 const res=await fetch("http://localhost:3000/booksData.json")
@@ -18,7 +19,7 @@ const Books =async () => {
 
 
 			<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-  {getBooksData.map((book) => (<BookCard key={book.bookId} book={book}></BookCard>
+  {getBooksData.map((book:Bookstype) => (<BookCard key={book.bookId} book={book}></BookCard>
 
   ))}
 </div>

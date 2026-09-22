@@ -1,12 +1,19 @@
+import { Bookstype } from '@/types/books.types';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
+interface BookCardProps{
 
-const BookCard = ({book}) => {
+
+
+	book:Bookstype
+}
+const BookCard = ({book}:BookCardProps) => {
 	return (
 
 		 <div
       key={book.bookId}
-      className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm  hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
     >
       {/* Image */}
       <div className="relative flex h-72 items-center justify-center overflow-hidden bg-gray-100 p-6">
@@ -77,9 +84,11 @@ const BookCard = ({book}) => {
         </div>
 
         {/* Button */}
+		<Link href={`/books/${book.bookId}`}>
         <button className="w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700">
           View Details →
         </button>
+		</Link>
       </div>
     </div>
 	);
