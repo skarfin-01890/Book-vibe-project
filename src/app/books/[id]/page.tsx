@@ -1,3 +1,5 @@
+import ReadButton from '@/app/components/ReadButton';
+import Wishlist from '@/app/components/Wishlist';
 import { Bookstype } from '@/types/books.types';
 import Image from 'next/image';
 import React from 'react';
@@ -19,7 +21,9 @@ return data
 const page = async({params}:BooksDetailsProps) => {
 	const {id}=await params;
 	const booksData= await getBooks()
-	const book=booksData.find((bookdata:Bookstype)=>bookdata.bookId===Number(id))
+	const book=booksData.find((bookdata:Bookstype)=>bookdata.bookId===Number(id))as Bookstype
+	console.log("id:", id);
+console.log("book:", book);
 
 	return (
 		<div className="container mx-auto mt-12 px-4">
@@ -112,9 +116,11 @@ const page = async({params}:BooksDetailsProps) => {
       </div>
 
       {/* Button */}
-      <button className="mt-6 w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-green-700 hover:shadow-lg">
-        Read / Borrow Book →
-      </button>
+	  <div className='flex gap-4'> <ReadButton book={book}></ReadButton>
+
+
+	  <Wishlist book={book}></Wishlist>
+</div>
 
     </div>
   </div>

@@ -3,11 +3,12 @@ import homepage from './../page';
 import Link from 'next/link';
 
 const Navbar = () => {
-	const links=<>
-<Link className='text-gray-600' href="">Home</Link>
-<Link className='text-gray-600' href="">Listed Books</Link>
-<Link className='text-gray-600' href="">Pages to Read</Link>
-	</>
+	const links=<div className='cursor-pointer flex gap-4 '>
+<Link className='text-gray-600 hover:rounded-xl hover:bg-white hover:p-1  hover:border border-gray-200' href="/">Home</Link>
+<Link className='text-gray-600 hover:rounded-xl hover:bg-white hover:p-1 hover:border border-gray-200' href="/listed">Listed Books</Link>
+<Link className='text-gray-600 hover:rounded-xl hover:bg-white hover:p-1 hover:border border-gray-200' href="">Pages to Read</Link>
+
+</div>
 	return (
 		<nav className=' bg-base-100 shadow-sm mt-6 '>
 	<div className="navbar container mx-auto">
@@ -25,7 +26,7 @@ const Navbar = () => {
     <a className="btn btn-ghost text-3xl font-bold">Book<span className='text-[#23BE0A]'>Vibe</span> </a>
   </div>
   <div className="navbar-center hidden lg:flex gap-4">
-    <ul className="menu menu-horizontal px-1 gap-4">
+    <ul className="menu menu-horizontal px-1 gap-4 ">
 {links}
     </ul>
   </div>
